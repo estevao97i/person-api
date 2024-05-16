@@ -1,0 +1,152 @@
+<div class="title">Teste Técnico Athenas</div>
+
+<div class="insere-pessoa">
+  <button mat-raised-button (click)="showFields = !showFields">
+    Inserir Pessoa
+  </button>
+  <div class="search">
+    <mat-form-field>
+      <mat-label>CPF</mat-label>
+      <input
+        matInput
+        #cpf
+        placeholder="Ex. 06073478596"
+        formControlName="cpf"
+      />
+    </mat-form-field>
+    <button
+      (keydown.enter)="buscarPorCpf(cpf.value)"
+      mat-raised-button
+      (click)="buscarPorCpf(cpf.value)"
+    >
+      Procurar
+    </button>
+  </div>
+</div>
+
+<div class="grids">
+  <ng-container *ngIf="showFields">
+    <form [formGroup]="form" class="container-insert">
+      <h3 style="display: flex; justify-content: center;">Salvar Pessoa</h3>
+      <div class="first-data">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input
+            matInput
+            placeholder="Ex. Michael Jackson"
+            value="nome"
+            formControlName="nome"
+          />
+        </mat-form-field>
+
+        <mat-radio-group
+          class="radio-btn"
+          formControlName="sexo"
+          aria-label="Sexo"
+        >
+          <mat-radio-button value="M">Masculino</mat-radio-button>
+          <mat-radio-button value="F">Feminino</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field>
+          <mat-label>CPF</mat-label>
+          <input
+            [disabled]="edicao"
+            matInput
+            placeholder="Ex. 06073478596"
+            formControlName="cpf"
+          />
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-label>Altura</mat-label>
+          <input matInput placeholder="ex. 1.60" formControlName="altura" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Peso</mat-label>
+          <input matInput placeholder="ex. 70.0" formControlName="peso" />
+        </mat-form-field>
+
+        <div class="calendar">
+          <mat-form-field>
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput formControlName="dataNasc" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="salvar-btn">
+        <button
+          mat-stroked-button
+          color="primary"
+          [disabled]="form.invalid"
+          (click)="salvar()"
+        >
+          Salvar
+        </button>
+      </div>
+    </form>
+  </ng-container>
+
+  <ng-container *ngIf="edicao">
+    <form
+      [formGroup]="formAtualizar"
+      #formAtualizarCampos
+      class="container-insert"
+    >
+    <h3 style="display: flex; justify-content: center;">Editar Pessoa</h3>
+      <div class="first-data">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input
+            matInput
+            placeholder="Ex. Michael Jackson"
+            value="nome"
+            formControlName="nome"
+          />
+        </mat-form-field>
+
+        <mat-radio-group
+          class="radio-btn"
+          formControlName="sexo"
+          aria-label="Sexo"
+        >
+          <mat-radio-button value="M">Masculino</mat-radio-button>
+          <mat-radio-button value="F">Feminino</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-form-field>
+          <mat-label>Altura</mat-label>
+          <input matInput placeholder="ex. 1.60" formControlName="altura" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Peso</mat-label>
+          <input matInput placeholder="ex. 70.0" formControlName="peso" />
+        </mat-form-field>
+
+        <div class="calendar">
+          <mat-form-field>
+            <mat-label>Data de Nascimento</mat-label>
+            <input matInput formControlName="dataNasc" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div *ngIf="edicao" class="btn-geral">
+        <button mat-stroked-button color="primary" (click)="editar()">
+          Salvar Edição
+        </button>
+        <button mat-stroked-button color="warn" (click)="cancelarEdicao()">
+          Cancelar Edição
+        </button>
+        <button mat-stroked-button color="warn" (click)="excluir(cpf.value)">
+          Excluir
+        </button>
+        <button mat-stroked-button (click)="calculaPesoIdeal()">
+          Calcular Peso Ideal
+        </button>
+      </div>
+    </form>
+  </ng-container>
+</div>

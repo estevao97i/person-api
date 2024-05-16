@@ -1,0 +1,115 @@
+.title {
+  padding: 1rem 0;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 20%;
+  margin: 1rem auto;
+}
+
+.grids {
+  display: flex;
+  justify-content: space-around;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.lista-pessoas {
+  display: flex;
+  gap: 3rem;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.card-pessoa {
+    border: 2px solid rgb(230, 230, 230);
+    padding: 1rem;
+  }
+
+  .example-form {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+  }
+
+  .second-data {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .radio-btn {
+    padding-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn-geral {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding-left: 2rem;
+
+    * {
+      padding: 1.5rem 1rem;
+    }
+  }
+
+  .insere-pessoa {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .search {
+      padding-right: 2rem;
+      gap: 1rem;
+      align-items: center;
+      display: flex;
+
+      button {
+        padding-right: 1rem;
+        position: relative;
+        top: -10px
+      }
+    }
+  }
+
+  .salvar-btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.5rem;
+
+    * {
+      padding: 1.2rem 2rem;
+    }
+  }
+
+  .container-insert {
+    margin-left: 1rem;
+    max-width: 40%;
+    padding: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    .first-data {
+      width: 100%;
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: center;
+      gap: 1rem;
+
+      mat-button-toggle-group {
+        height: fit-content;
+      }
+    }
+  }
